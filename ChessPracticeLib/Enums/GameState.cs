@@ -4,17 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ChessPracticeLib
+namespace ChessPractice_Console.Enums
 {
-    public enum ChessPiecesEnum
+    public enum GameState
     {
         None,
-        Pawn,
-        Bishop,
-        Knight,
-        Rook,
-        Queen,
-        King
-
+        StartGame,
+        WhiteMovement,
+        BlackMovement,
+        EndGame
     }
 }

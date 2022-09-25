@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ChessPracticeLib.Enums;
+using ChessPracticeLib.Interfaces;
 
 namespace ChessPracticeLib.Models
 {
@@ -34,25 +36,32 @@ namespace ChessPracticeLib.Models
         }
 
 
-        public void GetNextLegalMoves(Cell currentCell,ChessPiecesEnum chessPiece)
+        public void GetNextLegalMoves(Cell currentCell,IChessPiece actualPiece)
         {
             ClearBoard();
 
-            switch (chessPiece)
+            switch (actualPiece.Type)
             {
-                case ChessPiecesEnum.None:
+                case PieceType.None:
                     break;
-                case ChessPiecesEnum.Pawn: 
+                case PieceType.Pawn: 
                     break;
-                case ChessPiecesEnum.Knight:
+                case PieceType.Knight:
                     SetKnightLegalMoves(currentCell);
+
+                    // Testing
+                    this.Grid[currentCell.RankNumber, currentCell.FilesNumber].IsOccupied = true;
                     break;
-                case ChessPiecesEnum.Bishop: 
+                case PieceType.Bishop: 
                     break;
-                case ChessPiecesEnum.Queen: 
+                case PieceType.Queen: 
                     break;
-                case ChessPiecesEnum.King: 
+                case PieceType.King: 
                     break;
+
+                    // I have to make a PerformMovement here because this code is unreacheble and because of that
+                    // i have to paste in any case/breake sentence
+                    //this.Grid[currentCell.RankNumber, currentCell.FilesNumber].IsOccupied = true;
             }
         }
 

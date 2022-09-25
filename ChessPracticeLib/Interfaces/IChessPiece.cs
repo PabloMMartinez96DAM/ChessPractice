@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChessPracticeLib.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,9 +7,13 @@ using System.Threading.Tasks;
 
 namespace ChessPracticeLib.Interfaces
 {
-    internal interface IChessPiece
+    public interface IChessPiece
     {
-        ChessPiecesEnum ChessPiece { get; }
-        string Name { get => Enum.GetName(this.ChessPiece); }
+        TeamColor Team { get;}
+        PieceType Type { get;}
+        string Name { get => Enum.GetName(this.Type); }
+        void Movement();
+
+        
     }
 }
